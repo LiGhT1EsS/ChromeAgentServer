@@ -1,0 +1,7 @@
+CREATE TABLE IF NOT EXISTS urls(
+  id BIGINT(20) PRIMARY KEY AUTO_INCREMENT,
+  url LONGTEXT DEFAULT "" NOT NULL,
+  created_time DATETIME DEFAULT now(),
+  updated_time DATETIME DEFAULT now() ON UPDATE now(),
+  is_deleted TINYINT(1) DEFAULT 0
+)

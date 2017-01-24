@@ -1,0 +1,28 @@
+#!/usr/bin/env python2
+# coding: utf-8
+# Created by PyCharm
+# Project: ChromeAgentServer
+# Filename: Settings.py
+# Time: 2017/1/24
+
+
+__author__ = 'lightless'
+__email__ = 'root@lightless.me'
+
+
+__all__ = ['settings']
+
+
+class Settings(object):
+
+    debug = True
+
+    db_user = 'root'
+    db_password = '123456'
+    db_host = '192.168.198.128'
+    db_name = 'chrome_agent_server'
+
+    def __init__(self):
+        super(Settings, self).__init__()
+
+settings = Settings()
