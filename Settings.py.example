@@ -22,6 +22,8 @@ class Settings(object):
     db_host = '192.168.198.128'
     db_name = 'chrome_agent_server'
 
+    token = 'token123!@#'
+
     def __init__(self):
         super(Settings, self).__init__()
 
