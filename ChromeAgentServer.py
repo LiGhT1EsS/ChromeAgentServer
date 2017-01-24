@@ -5,6 +5,7 @@ from __future__ import print_function
 
 import threading
 import base64
+import datetime
 
 from flask import Flask
 from flask import request
@@ -70,7 +71,10 @@ def work_func(url):
     qs = cursor.fetchall()
     if int(qs[0][0]) == 0:
         # insert
-        sql = "INSERT INTO chrome_agent_server.urls(url) VALUE ('{0}')".format(url)
+        sql = "INSERT INTO chrome_agent_server.urls(url, created_time, updated_time) " \
+              "VALUE ('{0}', '{1}', '{2}')".format(
+                    url, datetime.datetime.now(), datetime.datetime.now()
+                )
         cursor.execute(sql)
         conn.commit()
 
