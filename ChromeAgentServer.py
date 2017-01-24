@@ -7,6 +7,7 @@ import threading
 import base64
 import datetime
 
+import requests
 from flask import Flask
 from flask import request
 from flask import jsonify
@@ -47,7 +48,7 @@ def show_result():
         host=settings.db_host, user=settings.db_user, passwd=settings.db_password, db=settings.db_name
     )
     cursor = conn.cursor()
-    sql = "SELECT url FROM chrome_agent_server.urls WHERE is_deleted != 1"
+    sql = "SELECT url FROM chrome_agent_server.urls WHERE is_deleted != 1 ORDER BY id DESC"
     cursor.execute(sql)
     qs = cursor.fetchall()
 
@@ -59,6 +60,7 @@ def show_result():
 
 
 def work_func(url):
+    raw_url = url
     url = url.replace("\\", "\\\\")
     url = url.replace("'", "\\'")
     # print(url)
