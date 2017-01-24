@@ -47,7 +47,7 @@ def show_result():
         host=settings.db_host, user=settings.db_user, passwd=settings.db_password, db=settings.db_name
     )
     cursor = conn.cursor()
-    sql = "SELECT url FROM chrome_agent_server.urls WHERE is_deleted != 1 ORDER BY id DESC"
+    sql = "SELECT url FROM chrome_agent_server.urls WHERE is_deleted != 1 ORDER BY id DESC LIMIT 20"
     cursor.execute(sql)
     qs = cursor.fetchall()
 
