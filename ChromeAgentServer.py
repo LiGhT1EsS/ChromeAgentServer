@@ -7,7 +7,6 @@ import threading
 import base64
 import datetime
 
-import requests
 from flask import Flask
 from flask import request
 from flask import jsonify
