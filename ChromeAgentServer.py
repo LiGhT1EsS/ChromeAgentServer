@@ -79,4 +79,4 @@ def work_func(url):
 
 
 if __name__ == '__main__':
-    app.run(debug=settings.debug, threaded=True)
+    app.run(debug=settings.debug, threaded=True, host=settings.listen_host, port=settings.listen_port)
